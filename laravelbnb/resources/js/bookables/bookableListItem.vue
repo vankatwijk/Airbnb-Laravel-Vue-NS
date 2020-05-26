@@ -1,6 +1,12 @@
 <template>
     <div>
-        <router-link class="btn nav-button" :to="{name:'second'}">Second2
-        </router-link>
+        <h1>{{ itemTitle }}</h1>
+        <p>{{ itemContent }}</p>
     </div>
 </template>
+
+<script>
+export default {
+    props:{'itemTitle': String,'itemContent':String,price:Number}
+}
+</script>
