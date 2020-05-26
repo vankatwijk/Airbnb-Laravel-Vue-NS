@@ -1,5 +1,6 @@
 <template>
     <div>
-        <router-link class="btn nav-button" :to="{name:'second'}">Second</router-link>
+        <router-link class="btn nav-button" :to="{name:'second'}">Second2
+        </router-link>
     </div>
 </template>
