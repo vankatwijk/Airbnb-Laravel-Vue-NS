@@ -12,7 +12,7 @@ const routes = [
     {
         path: "/second",
         component:Example2,
-        name:"sencond",
+        name:"second",
     }
 ];
 
