@@ -1920,7 +1920,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     'itemTitle': String,
-    'itemContent': String,
+    'itemDescription': String,
     price: Number
   }
 });
@@ -37616,7 +37616,9 @@ var render = function() {
         _vm._v(" " + _vm._s(_vm.itemTitle))
       ]),
       _vm._v(" "),
-      _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.itemContent))])
+      _c("p", { staticClass: "card-text" }, [
+        _vm._v(_vm._s(_vm.itemDescription))
+      ])
     ])
   ])
 }
@@ -37660,7 +37662,7 @@ var render = function() {
                       _c("BookableListItem", {
                         attrs: {
                           "item-title": bookable.title,
-                          "item-content": bookable.content,
+                          "item-description": bookable.description,
                           price: 1000
                         }
                       })

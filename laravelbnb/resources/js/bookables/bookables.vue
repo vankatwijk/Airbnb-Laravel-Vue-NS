@@ -11,7 +11,7 @@
                     
                     <BookableListItem
                     :item-title="bookable.title" 
-                    :item-content="bookable.content" 
+                    :item-description="bookable.description" 
                     :price="1000">
                     </BookableListItem>
 
