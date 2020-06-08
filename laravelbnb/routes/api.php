@@ -1,6 +1,6 @@
 <?php
 
-use App\bookables;
+use App\Bookable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +23,6 @@ Route::get('bookables', function (Request $request){
     return Bookable::all();
 });
 
-Route::get('bookables/{id}', function (Request $request, $bookableId){
-    return Bookable::find($bookableId);
+Route::get('bookables/{id}', function (Request $request, $id){
+    return Bookable::findOfFail($id); //findOfFail will return 400 error if it can't find
 }); 

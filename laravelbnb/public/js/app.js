@@ -1991,41 +1991,11 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    this.loading = true;
-    setTimeout(function () {
-      _this.bookables = [{
-        title: "cheap villa",
-        content: "A very cheap villa"
-      }, {
-        title: "cheap villa2",
-        content: "A very cheap villa"
-      }, {
-        title: "cheap villa2",
-        content: "A very cheap villa"
-      }, {
-        title: "cheap villa2",
-        content: "A very cheap villa"
-      }, {
-        title: "cheap villa2",
-        content: "A very cheap villa"
-      }, {
-        title: "cheap villa2",
-        content: "A very cheap villa"
-      }, {
-        title: "cheap villa2",
-        content: "A very cheap villa"
-      }, {
-        title: "cheap villa2",
-        content: "A very cheap villa"
-      }, {
-        title: "cheap villa2",
-        content: "A very cheap villa"
-      }, {
-        title: "cheap villa2",
-        content: "A very cheap villa"
-      }];
+    var request = axios.get("/api/bookables").then(function (response) {
+      console.log('we got a responese');
+      _this.bookables = response.data;
       _this.loading = false;
-    }, 2000);
+    });
   }
 });
 

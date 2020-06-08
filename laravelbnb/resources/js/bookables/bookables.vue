@@ -51,54 +51,14 @@ export default {
         }
     },
     created(){
-        this.loading = true;
-        setTimeout(()=>{
 
-            this.bookables =[
-                {
-                    title:"cheap villa",
-                    content:"A very cheap villa"
-                },
-                {
-                    title:"cheap villa2",
-                    content:"A very cheap villa"
-                },
-                {
-                    title:"cheap villa2",
-                    content:"A very cheap villa"
-                },
-                {
-                    title:"cheap villa2",
-                    content:"A very cheap villa"
-                },
-                {
-                    title:"cheap villa2",
-                    content:"A very cheap villa"
-                },
-                {
-                    title:"cheap villa2",
-                    content:"A very cheap villa"
-                },
-                {
-                    title:"cheap villa2",
-                    content:"A very cheap villa"
-                },
-                {
-                    title:"cheap villa2",
-                    content:"A very cheap villa"
-                },
-                {
-                    title:"cheap villa2",
-                    content:"A very cheap villa"
-                },
-                {
-                    title:"cheap villa2",
-                    content:"A very cheap villa"
-                }
-            ];
-
+        const request = axios.get("/api/bookables")
+        .then(response => {
+            console.log('we got a responese');
+            this.bookables = response.data;
             this.loading = false;
-        },2000);
+        });
+
     }
 }
 </script>
