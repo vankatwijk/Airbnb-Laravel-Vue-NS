@@ -24,5 +24,5 @@ Route::get('bookables', function (Request $request){
 });
 
 Route::get('bookables/{id}', function (Request $request, $id){
-    return Bookable::findOfFail($id); //findOfFail will return 400 error if it can't find
+    return Bookable::findOrFail($id); //findOfFail will return 400 error if it can't find
 }); 

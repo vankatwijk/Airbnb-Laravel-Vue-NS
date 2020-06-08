@@ -10,9 +10,9 @@
                 :key="'row' + row + column">
                     
                     <BookableListItem
-                    :item-title="bookable.title" 
-                    :item-description="bookable.description" 
-                    :price="1000">
+                    :title="bookable.title" 
+                    :description="bookable.description" 
+                    :id="bookable.id">
                     </BookableListItem>
 
                 </div>
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import BookableListItem from "./bookableListItem"
+import BookableListItem from "./BookableListItem"
 export default {
     components:{
         BookableListItem

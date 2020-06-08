@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any?}', function () {
+Route::get('{any}', function () {
     return view('welcome');
-})->where('api', '^(?!api\/)[\/\w\.-]*');
+})->where('any', '^(?!api\/)[\/\w\.-]*');
+
+// Route::get('/bookable/{any?}', function () {
+//     return view('welcome');
+// })->where('api', '^(?!api\/)[\/\w\.-]*');
