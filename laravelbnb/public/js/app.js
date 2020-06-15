@@ -1944,6 +1944,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1984,7 +1988,7 @@ __webpack_require__.r(__webpack_exports__);
       return 200 == this.status;
     },
     noAvailability: function noAvailability() {
-      return 400 == this.status;
+      return 404 == this.status;
     }
   }
 });
@@ -38343,7 +38347,18 @@ var render = function() {
     _c(
       "h6",
       { staticClass: "text-uppercase text-secondary font-weight-bolder" },
-      [_vm._v("Check Availability")]
+      [
+        _vm._v("\n        Check Availability\n        "),
+        _vm.noAvailability
+          ? _c("span", { staticClass: "test-danger" }, [
+              _vm._v("(NOT AVAILABLE)")
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.hasAvailability
+          ? _c("span", { staticClass: "text-success" }, [_vm._v("(AVAILABLE)")])
+          : _vm._e()
+      ]
     ),
     _vm._v(" "),
     _c("div", { staticClass: "form-row" }, [
