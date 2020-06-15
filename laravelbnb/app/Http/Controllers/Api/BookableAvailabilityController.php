@@ -14,7 +14,7 @@ class BookableAvailabilityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke($id, Request $request): bool
+    public function __invoke($id, Request $request)
     {
         $data = $request->validate([
             'from' => 'required|date_format:Y-m-d|after_or_equal:now',
