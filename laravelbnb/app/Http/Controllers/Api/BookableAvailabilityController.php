@@ -14,7 +14,7 @@ class BookableAvailabilityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke($id, Request $request)
+    public function __invoke($id, Request $request): bool
     {
         $data = $request->validate([
             'from' => 'required|date_format:Y-m-d|after_or_equal:now',
@@ -23,7 +23,9 @@ class BookableAvailabilityController extends Controller
 
         $bookable = Bookable::findOrFail($id);
 
-        return $bookable->bookings()->betweenDates($data['from'],$data['to'])->count();
+        return $bookable->availableFor($data['from'],$data['to'])
+        ? response()->json([])
+        : response()->json([], 404);
 
 
     }
