@@ -12,7 +12,9 @@
                     placeholder="Start date"
                     v-model="from"
                     @keyup.enter="check"
+                    :class="[{'is-invalid': this.errorFor('from')}]"
                 />
+                <div class="invalid-feedback" v-for="(error,index) in this.errorFor('from')" :key="'from' + index">{{error}}</div>
             </div>
             <div class="form-group col-md-6">
                 <label for="to">From</label>
@@ -23,7 +25,9 @@
                     placeholder="end date"
                     v-model="to"
                     @keyup.enter="check"
+                    :class="[{'is-invalid': this.errorFor('to')}]"
                 />
+                <div class="invalid-feedback" v-for="(error,index) in this.errorFor('to')" :key="'to' + index">{{error}}</div>
             </div>
             <button class="btn btn-secondary btn-block" @click="check" :disabled="loading">Check!</button>
         </div>
@@ -57,6 +61,20 @@ export default {
                 this.status = error.response.status;
             })
             .then(() => (this.loading = false))
+        },
+        errorFor(field){
+            return this.hasErrors && this.errors[field] ? this.errors[field] : null;
+        }
+    },
+    computed: {
+        hasErrors() {
+            return 422 == this.status && this.errors !== null;
+        },
+        hasAvailability(){
+            return 200 == this.status;
+        },
+        noAvailability(){
+            return 400 == this.status;
         }
     }
 }
@@ -68,5 +86,13 @@ label{
     text-transform:uppercase;
     color:gray;
     font-weight:bolder;
+}
+.is-invalid {
+    border-color: #b22222;
+    background-image: none;
+}
+
+.invalid-feedback {
+    color:  #b22222;
 }
 </style>
