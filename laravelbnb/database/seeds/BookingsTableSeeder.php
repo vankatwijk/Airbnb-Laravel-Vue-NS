@@ -11,7 +11,7 @@ class BookingsTableSeeder extends Seeder
      */
     public function run()
     {
-        Bookable::all()->each(function (Bookable $bookable)){
+        Bookable::all()->each(function (Bookable $bookable){
             $booking = factory(Booking::class)->make();
             $bookings = collect([$booking]);
 
@@ -19,12 +19,15 @@ class BookingsTableSeeder extends Seeder
                 $from = (clone $booking-to)->addDays(random_int(1,14));
                 $to = (clone $from)->addDays(random_int(0,14));
 
-                $booking = new Booking();
-                $booking->from = $from;
                 $booking = Booking::make([
-
+                    'from' => $from,
+                    'to' => $to
                 ]);
+
+                $bookings->push($booking);
             }
-        }
+
+            $bookable->bookings()->saveMany($bookings);
+        });
     }
 }
