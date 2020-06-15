@@ -7,11 +7,11 @@ use Faker\Generator as Faker;
 use Carbon\Carbon;
 
 $factory->define(Booking::class, function (Faker $faker) {
-    $from = Carbon::$faker->dateTimeBetween('-1 months', '+1 months');
+    $from = Carbon::Instance($faker->dateTimeBetween('-1 months', '+1 months'));
     $to = (clone $from)->addDays(random_int(0,14));
 
     return [
-        'from'-> $from,
-        'to'-> $to
+        'from'=> $from,
+        'to'=> $to
     ];
 });
