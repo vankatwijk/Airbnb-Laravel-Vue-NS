@@ -1,6 +1,7 @@
 <?php
 
 use App\Review;
+use App\Bookable;
 use Illuminate\Database\Seeder;
 
 class ReviewsTableSeeder extends Seeder
