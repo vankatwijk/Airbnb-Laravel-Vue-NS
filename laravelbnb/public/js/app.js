@@ -38549,9 +38549,71 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("review list")])
+  return _c(
+    "div",
+    { staticStyle: { padding: "1.25rem" } },
+    [
+      _c(
+        "h6",
+        {
+          staticClass: "text-uppercase text-secondary font-weight-bolder pt-4"
+        },
+        [_vm._v(" Review List")]
+      ),
+      _vm._v(" "),
+      _vm._l(3, function(number) {
+        return _c(
+          "div",
+          { key: number, staticClass: "border-bottomvd-more d-md-block" },
+          [
+            _vm._m(0, true),
+            _vm._v(" "),
+            _vm._m(1, true),
+            _vm._v(" "),
+            _vm._m(2, true)
+          ]
+        )
+      })
+    ],
+    2
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row pt-4" }, [
+      _c("div", { staticClass: "col-md-6" }, [
+        _vm._v("\n                tom smith\n            ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6 d-flex justify-content-end" }, [
+        _vm._v("\n                star rating\n            ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _vm._v("\n                Adding 5minutes ago\n            ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row pt-4" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _vm._v("\n                Content of the review\n            ")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
