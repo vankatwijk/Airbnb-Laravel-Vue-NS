@@ -13,14 +13,20 @@ export default {
     },
     computed:{
         halfStar(){
-            return false;
+            const fraction = Math.round(
+                (this.rating - Math.floor(this.rating)) * 100
+            );
+            return fraction > 0 && fraction < 50;
         },
         fullStars(){
-            return 4;
+            return Math.round(this.rating);
         },
         emptyStars(){
-            return 1;
+            //if rating would be 1.9, ceil(1.9) =2
+            return 5 - Math.ceil(this.rating);
         }
+    },
+    created(){
     }
 }
 </script>
