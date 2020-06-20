@@ -2,13 +2,16 @@
     <div>
         <div class="form-group">
             <label class="text-muted">select the star rating</label>
-            <star-rating :rating="review.rating" class="fa-4x" v-on:rating:changed="review.rating = $event"></star-rating>
+            <star-rating
+            class="fa-4x" 
+            v-model="review.rating"
+            ></star-rating>
         </div>
         <div class="form-group">
             <label for="content" class="text-muted">
                 Describe  your expirience with
             </label>
-            <textarea name="content" cols="30" rows="10" class="form-control"></textarea>
+            <textarea name="content" cols="30" rows="10" class="form-control" v-model="review.content"></textarea>
         </div>
         <button class="btn btn-lg btm-primary btn-block">Submit</button>
     </div>
@@ -25,10 +28,8 @@ export default {
             }
         }
     },
-    methods: {
-        onRatingChanged(rating){
-            console.log(rating);
-        }
+    created(){
+        
     }
 }
 </script>
