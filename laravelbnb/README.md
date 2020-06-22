@@ -6,9 +6,12 @@ AirBnb web interface created with laravel 7 and vue
 AirBnb clone created using laravel and vue.js(vue router , vuex) as a framework. Mysql is used as the backend API database of choose.
 
 ## Features
--Add a property
--create a booking
--create a review
+```
+Add a property
+Create a booking
+Create a review
+Check for availability
+```
 
 ## Getting Started
 
@@ -64,7 +67,7 @@ npm run watch
 ```
 
 ## Debuging
-```
+```bash
 # if you encounter issues
 php artisan cache:clear
 php artisan config:clear
@@ -74,7 +77,7 @@ chmod -R 775 /path/to/your/project
 ```
 
 ## Running the tests
-```
+```bash
 # laravel backend api
 php artisan serve / sudo php artisan serve --host 192.168.0.51 --port 9723
 
@@ -83,7 +86,7 @@ npm run serve (not needed if 'npm run watch' is running)
 
 ```
 ## API endpoints
-```
+```bash
 # API documentation
 import the postman api collection documentation to view the different endpoints for the project
 ```
@@ -97,7 +100,7 @@ import the postman api collection documentation to view the different endpoints 
 
 ## Authors
 
-* **Hendrikus van Katwijk** - *Initial work* - [hpvk](https://github.com/vankatwijk) - [hpvk](https://hpvk.com)
+* **Hendrikus van Katwijk** - [Github](https://github.com/vankatwijk) - [Personal website](https://hpvk.com)
 
 ## License
 
