@@ -1,0 +1,6 @@
+framework module TNSListView {
+  umbrella header "TNSListView.h"
+
+  export *
+  module * { export * }
+}

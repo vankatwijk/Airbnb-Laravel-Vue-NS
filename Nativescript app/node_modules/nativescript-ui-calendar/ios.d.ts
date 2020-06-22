@@ -1,0 +1,1 @@
+/// <reference path="./platforms/ios/typings/calendar.d.ts" />

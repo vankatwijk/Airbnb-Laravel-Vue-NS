@@ -1,0 +1,9 @@
+/**
+ * Color classes
+ * The following creates this pattern:
+ * .c-grey{color:#e0e0e0}.c-bg-grey{background-color:#e0e0e0}
+**/
+@each $name in map-keys($colors) {
+  .c-#{"" + $name} { color: color($name); }
+  .c-bg-#{"" + $name} { background-color: color($name); }
+}

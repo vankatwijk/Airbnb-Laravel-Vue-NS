@@ -1,0 +1,141 @@
+// Core
+
+@mixin action-bar($selectors, $item-selectors) {
+    #{$selectors} {
+        font-size: const(btn-font-size);
+
+        @at-root .ns-ios & {
+            margin-left: 20;
+            vertical-align: stretch;
+            horizontal-align: stretch;
+        }
+
+        @at-root .ns-landscape.ns-ios & {
+            margin-left: 100;
+            padding: 0 5;
+        }
+
+        #{$item-selectors} {
+            android-elevation: 0;
+            font-size: const(font-size);
+            padding: 12 10 12 0;
+            margin: 0;
+            min-width: 0;
+            width: auto;
+            border-width: 0;
+            text-transform: none;
+            font-weight: normal;
+
+            &:active {
+                opacity: .7;
+            }
+        }
+
+        & > Label {
+            font-weight: bold;
+            font-size: const(btn-font-size);
+        }
+
+        .ns-statusbar-transparent Page > & {
+            padding-top: 24;
+        }
+
+        .ns-android__19.ns-statusbar-transparent Page > &,
+        .ns-modal.ns-statusbar-transparent Page > & {
+            padding-top: 0;
+       }
+
+        @if not $compat {
+            .ns-android & Button,
+            .ns-android & .nt-button {
+                padding: 0 6;
+            }
+        } @else {
+            .ns-android & .btn {
+                padding: 0 6;
+            }
+        }
+
+        @at-root .ns-android & > Label {
+            width: 100%;
+        }
+
+        #{if($compat, '.action-bar-title', '> Label, > GridLayout Label')} {
+            font-size: const(btn-font-size);
+            vertical-align: center;
+            text-align: center;
+        }
+
+        > GridLayout {
+            width: 100%;
+            height: 100%;
+
+            > StackLayout {
+                padding: 0;
+                horizontal-align: left;
+            }
+
+            Button {
+                padding: 12 10;
+                horizontal-align: left;
+            }
+
+            [col="2"] {
+                horizontal-align: right;
+            }
+
+            @at-root .ns-android & {
+                padding: 0 4;
+
+                Button {
+                    padding: 12 16;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+// Skin
+
+@mixin action-bar-skin($selectors, $item-selectors) {
+    #{$selectors} {
+        @include colorize(
+            $color: complementary-color,
+            $background-color: complementary
+        );
+
+        #{$item-selectors} {
+            @include colorize(
+                $color: complementary-color,
+                $background-color: transparent
+            );
+
+            #{if($compat, '&-active:active', '&:active, &.-active')} {
+                @include colorize(
+                    $color: complementary-color
+                );
+            }
+
+            .ns-ios &,
+            .ns-ios &:active {
+                @include colorize($background-color: transparent);
+            }
+        }
+
+        @if not $compat {
+            .ns-android & Button,
+            .ns-android & .nt-button {
+                @include colorize(
+                    $background-color: complementary
+                );
+            }
+        } @else {
+            .ns-android & .btn {
+                @include colorize(
+                    $background-color: complementary
+                );
+            }
+        }
+    }
+}

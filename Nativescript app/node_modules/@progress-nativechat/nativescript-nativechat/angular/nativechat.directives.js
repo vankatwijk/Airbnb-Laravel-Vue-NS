@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var NativeChatDirective = (function () {
+    function NativeChatDirective() {
+    }
+    NativeChatDirective = __decorate([
+        core_1.Directive({
+            selector: "NativeChat"
+        })
+    ], NativeChatDirective);
+    return NativeChatDirective;
+}());
+exports.NativeChatDirective = NativeChatDirective;
+exports.DIRECTIVES = NativeChatDirective;
+//# sourceMappingURL=nativechat.directives.js.map

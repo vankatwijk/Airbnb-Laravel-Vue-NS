@@ -1,0 +1,18 @@
+// Core variables
+@import './index';
+
+/**
+ * Purple variable overrides
+ **/
+
+// Accent
+$accent: const(sky);
+
+// Complementary
+$complementary: const(purple);
+$complementary-color: const(white);
+
+// Buttons
+$btn-color-inverse: const(white);
+
+@import '../core/colors/index';

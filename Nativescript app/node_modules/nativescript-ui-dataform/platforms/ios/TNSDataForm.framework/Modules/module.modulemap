@@ -1,0 +1,6 @@
+framework module TNSDataForm {
+  umbrella header "TNSDataForm.h"
+
+  export *
+  module * { export * }
+}

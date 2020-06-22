@@ -1,0 +1,1 @@
+/// <reference path="./platforms/ios/typings/core.d.ts" />

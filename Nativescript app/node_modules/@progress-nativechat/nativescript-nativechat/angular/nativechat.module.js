@@ -1,0 +1,19 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var element_registry_1 = require("nativescript-angular/element-registry");
+var nativechat_directives_1 = require("./nativechat.directives");
+var NativeChatModule = (function () {
+    function NativeChatModule() {
+    }
+    NativeChatModule = __decorate([
+        core_1.NgModule({
+            declarations: [nativechat_directives_1.DIRECTIVES],
+            exports: [nativechat_directives_1.DIRECTIVES],
+        })
+    ], NativeChatModule);
+    return NativeChatModule;
+}());
+exports.NativeChatModule = NativeChatModule;
+element_registry_1.registerElement("NativeChat", function () { return require("../index").NativeChat; });
+//# sourceMappingURL=nativechat.module.js.map

@@ -1,0 +1,146 @@
+@mixin list-view($selectors) {
+    #{$selectors} {
+        background-color: transparent;
+
+        StackLayout {
+            padding: 8;
+        }
+
+        #{if($compat, '.list-group-item', '> *')} {
+            background-color: transparent;
+            padding: 8;
+            margin: 0;
+
+            Label {
+                padding: 5;
+                vertical-align: center;
+            }
+        }
+
+        .thumb#{if($compat, '', ', .-thumb')} {
+            stretch: fill;
+            width: 40;
+            height: 40;
+            min-height: 0;
+            margin-right: 16;
+        }
+
+        @if $compat {
+            .list-group-item-heading {
+                margin-bottom: 5;
+            }
+
+            .list-group-item-text {
+                font-size: const(font-size) - 2;
+            }
+        } @else {
+            @at-root &.-single-col-cards {
+                Image {
+                    width: 100%;
+                    height: 200;
+                }
+            }
+
+            @at-root &.-two-col-cards {
+                Image {
+                    height: 100;
+                }
+
+                .ns-ios & {
+                    > StackLayout {
+                        width: 50%;
+                    }
+
+                    > StackLayout Image {
+                        horizontal-align: left;
+                        width: 100%;
+                    }
+                }
+            }
+
+            @at-root &.-two-lines-image,
+            &.-single-line-image {
+                Image {
+                    width: 60;
+                    height: 60;
+                    margin-right: 10;
+                    margin-bottom: 0;
+                }
+            }
+
+            .-separator {
+                border-bottom-width: 1;
+            }
+
+            .nt-list-view__delete {
+                padding: 0 10;
+
+                .ns-ios & {
+                    padding: 0 10 0 25;
+                }
+
+                & > Label {
+                    horizontal-align: center;
+                    vertical-align: center;
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        .nt-icon {
+            font-size: const(icon-font-size-lg);
+            width: 56;
+            height: 100%;
+            text-align: center;
+        }
+
+        // There is a hidden StackLayout at the root of RadListView.
+        @at-root RadListView > StackLayout {
+            padding: 0;
+        }
+    }
+
+    // Workaround for the background-color set on deeper level in RadListView
+    RadListView > * > * {
+        background-color: transparent;
+    }
+
+}
+
+
+@mixin list-view-skin($selectors) {
+    #{$selectors} {
+        @include colorize($item-selected-background-color: item-active-background);
+
+        #{if($compat, '.list-group-item', '> *')} {
+            &.active,
+            &:highlighted {
+                @include colorize($background-color: item-active-background);
+            }
+        }
+
+        @if $compat {
+            .list-group-item-text {
+                @include colorize($color: secondary);
+            }
+        } @else {
+            .-separator {
+                @include colorize($border-bottom-color: background-alt-20);
+            }
+
+            @include colorize($separator-color: background-alt-20);
+
+            .nt-list-view__delete {
+                background-color: const(error);
+
+                & > Label {
+                    @include colorize($color: primary);
+                }
+            }
+        }
+
+        .nt-icon {
+            @include colorize($scale-contrasted-color: accent background 0% 50%);
+        }
+    }
+}

@@ -1,0 +1,46 @@
+@import './colors';
+@import './spacing';
+@import './text';
+@import './headings';
+@import './bootstrap';
+
+@if $compat {
+    .fa {
+        font-family: FontAwesome, fontawesome-webfont;
+    }
+}
+
+.ns-modal,
+.ns-root {
+    @include colorize(
+        $background-color: background,
+        $color: primary
+    );
+
+    font-family: sans-serif;
+    font-size: const(font-size);
+}
+
+.-hidden,
+.hidden {
+    visibility: collapsed;
+}
+
+.-rounded,
+.rounded {
+    border-radius: const(border-radius-sm);
+}
+
+.-circle {
+    border-radius: const(border-radius-lg);
+}
+
+/* Dividers */
+
+.hr {
+    height: 1;
+    width: 100%;
+    margin: 9 0 10;
+    border-width: 0 0 const(border-width);
+    border-style: solid;
+}

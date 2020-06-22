@@ -1,0 +1,88 @@
+// Core dark colors
+$dark-colors: (
+    primary: $primary-dark,
+    background: $background-dark,
+    secondary: $secondary-dark,
+
+    accent: lighten($focus, 10%),
+    complementary: if(light(complementary) == #fff, $background-dark, if($complementary-dark != transparent, $complementary-dark, light(complementary))),
+
+    btn-color: $white,
+    border-color: lighten($focus, 10%)
+);
+
+@if (global_variable_exists("theme-type")) {
+    $dark-colors: map-merge($dark-colors, (
+        accent: lighten(get-base-hue($primary-palette-name, 500), 10%),
+        complementary: get-base-hue($secondary-palette-name, 500),
+        btn-color: map-get($material-dark-complimentary, base-bg),
+        border-color: rgba(0,0,0,.08)
+    ));
+
+    $dark-colors: map-merge($dark-colors, (
+        disabled: mix(dark(accent), dark(background), 40%)
+    ));
+}
+
+@if (global_variable_exists("body-bg")) {
+    $dark-colors: map-merge($dark-colors, (
+        background: mix($body-bg, $charcoal, if(lightness($body-bg) > .5, 10%, 40%))
+    ));
+
+    $dark-colors: map-merge($dark-colors, (
+        complementary: $card-cap-bg,
+        primary: alternate(dark(background), 70%),
+        border-color: lighten($background, 3%),
+        btn-color: mix($secondary, $charcoal, 30%)
+    ));
+}
+
+@if (global_variable_exists("bg-color")) {
+    $dark-colors: map-merge($dark-colors, (
+        background: mix($bg-color, $charcoal, 10%)
+    ));
+
+    $dark-colors: map-merge($dark-colors, (
+        complementary: $accent,
+        primary: alternate(dark(background), 70%),
+        border-color: rgba(255,255,255,.08),
+        btn-color: mix($base-bg, $charcoal, 10%)
+    ));
+}
+
+$dark-colors: map-merge($dark-colors, (
+    accent: if($accent-dark != transparent, $accent-dark, dark(accent))
+));
+
+$dark-colors: map-merge($dark-colors, (
+    background-alt-5: lighten(dark(background), 5%),
+    background-alt-10: lighten(dark(background), 10%),
+    background-alt-20: lighten(dark(background), 20%),
+    disabled: mix(dark(accent), dark(background), 40%),
+
+    complementary: if($complementary-dark != transparent, $complementary-dark, mix(dark(complementary), $black, 90%)),
+
+    text-color: dark(primary),
+    headings-color: dark(primary),
+
+    tab-text-color: mix(const(gray), dark(accent), 70%),
+
+    accent-dark: lighten(dark(accent), 20%),
+    accent-light: lighten(dark(accent), 40%),
+    accent-transparent: mix(transparent, dark(accent), 20%),
+    primary-accent: mix(transparent, dark(accent), 60%),
+    background-accent: mix(transparent, dark(accent), 90%),
+    background-dark-accent: mix(transparent, dark(accent), 85%),
+
+    item-active-color: mix(dark(primary), dark(background), 70%)
+));
+
+$dark-colors: map-merge($dark-colors, (
+    item-active-background: dark(background-dark-accent),
+    complementary-color: if($complementary-color-dark != transparent, $complementary-color-dark, alternate(dark(complementary), 100%)),
+    complementary-dark: darken(dark(complementary), 5%),
+    item-active-icon-color: dark(item-active-color),
+    btn-color-inverse: alternate(dark(accent)),
+    btn-color-secondary: darken(dark(btn-color), 10%)
+));
+

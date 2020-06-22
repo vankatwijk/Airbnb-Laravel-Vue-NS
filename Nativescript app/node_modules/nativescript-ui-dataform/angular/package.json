@@ -1,0 +1,5 @@
+{ 
+  "name" : "dataform-directives",
+  "main" : "dataform-directives",
+  "typings" : "dataform-directives.d.ts" 
+ }

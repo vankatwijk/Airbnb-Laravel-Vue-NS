@@ -1,0 +1,6 @@
+framework module TNSAutoComplete {
+  umbrella header "TNSAutoComplete.h"
+
+  export *
+  module * { export * }
+}

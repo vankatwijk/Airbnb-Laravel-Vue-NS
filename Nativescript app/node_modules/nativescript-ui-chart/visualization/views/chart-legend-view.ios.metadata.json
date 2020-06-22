@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":4,"metadata":{"RadLegendView":{"__symbolic":"class","extends":{"__symbolic":"reference","module":"./chart-legend-view.common","name":"RadLegendView","line":9,"character":35},"members":{"updateLegendPosition":[{"__symbolic":"method"}],"updateLegendView":[{"__symbolic":"method"}]}}}}]

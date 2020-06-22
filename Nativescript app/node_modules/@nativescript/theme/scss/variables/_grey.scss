@@ -1,0 +1,21 @@
+// Core variables
+@import './index';
+
+/**
+ * Forest variable overrides
+ **/
+
+// Complementary
+$complementary: const(grey-dark);
+$complementary-color: const(white);
+
+// Accent
+$accent: const(lime);
+
+// Buttons
+$btn-color-inverse: const(white);
+$btn-color: $accent;
+$btn-color-secondary: darken($btn-color, 10%);
+$background-alt-10: lighten($btn-color, 10%);
+
+@import '../core/colors/index';

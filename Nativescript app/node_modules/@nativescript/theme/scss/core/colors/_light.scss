@@ -1,0 +1,75 @@
+// Core light colors
+$light-colors: (
+    primary: $primary,
+    background: $background,
+    secondary: $secondary,
+
+    accent: $focus,
+    complementary: $complementary,
+    complementary-color: $complementary-color,
+
+    btn-color: $primary,
+    border-color: $border-color
+);
+
+@if global_variable_exists("theme-type") {
+    $light-colors: map-merge($light-colors, (
+        accent: get-base-hue($primary-palette-name, 500),
+        complementary: get-base-hue($secondary-palette-name, 500),
+        btn-color: map-get($material-light-complimentary, body-bg),
+        border-color: rgba(0,0,0,.08)
+    ));
+
+    $light-colors: map-merge($light-colors, (
+        disabled: mix(light(accent), light(background), 40%),
+        complementary-color: alternate(light(complementary))
+    ));
+}
+
+@if global_variable_exists("body-bg") {
+    $light-colors: map-merge($light-colors, (
+        complementary: $card-cap-bg,
+        complementary-color: alternate($card-cap-bg, 100%),
+        border-color: darken($background, 3%),
+        btn-color: $secondary
+    ));
+}
+
+@if global_variable_exists("bg-color") {
+    $light-colors: map-merge($light-colors, (
+        complementary: $accent,
+        complementary-color: alternate($accent, 100%),
+        border-color: rgba(0,0,0,.08),
+        btn-color: $base-bg
+    ));
+}
+
+$light-colors: map-merge($light-colors, (
+    background-alt-5: darken(light(background), 5%),
+    background-alt-10: darken(light(background), 10%),
+    background-alt-20: darken(light(background), 20%),
+    disabled: mix(light(accent), light(background), 40%),
+
+    text-color: light(primary),
+    headings-color: light(primary),
+
+    tab-text-color: mix(const(gray), light(accent), 70%),
+
+    accent-dark: darken(light(accent), 20%),
+    accent-light: lighten(light(accent), 20%),
+    accent-transparent: mix(transparent, light(accent), 20%),
+    primary-accent: mix(transparent, light(accent), 60%),
+    background-accent: mix(transparent, light(accent), 90%),
+    background-dark-accent: mix(transparent, light(accent), 85%),
+
+    item-active-color: mix(light(primary), light(background), 70%)
+));
+
+$light-colors: map-merge($light-colors, (
+    item-active-background: light(background-dark-accent),
+    complementary-dark: darken(light(complementary), 5%),
+    item-active-icon-color: light(item-active-color),
+    btn-color-inverse: alternate(light(accent)),
+    btn-color-secondary: darken(light(btn-color), 10%)
+));
+

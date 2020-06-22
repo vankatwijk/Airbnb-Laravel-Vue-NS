@@ -1,0 +1,40 @@
+// Specifics
+@import './controls';
+@import './bootstrap';
+
+/* Dividers */
+
+.hr {
+    @include colorize($contrasted-border-color: primary background -70%);
+}
+
+.hr-light {
+    @include colorize($border-color: accent-light);
+}
+
+.hr-dark {
+    @include colorize($border-color: accent-dark);
+}
+
+// export each map to CSS custom variables
+
+.ns-root,
+.ns-modal {
+    @each $name in map-keys($colors) {
+        --color-#{"" + $name}: #{color($name)};
+    }
+
+    @each $name in map-keys($constants) {
+        @if (not map-has-key($colors, $name)) {
+            --const-#{"" + $name}: #{const($name)};
+        }
+    }
+
+    @each $name in map-keys($light-colors) {
+        --light-#{"" + $name}: #{light($name)};
+    }
+
+    @each $name in map-keys($dark-colors) {
+        --dark-#{"" + $name}: #{dark($name)};
+    }
+}

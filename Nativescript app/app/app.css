@@ -1,0 +1,81 @@
+/*
+In NativeScript, the app.css file is where you place CSS rules that
+you would like to apply to your entire application. Check out
+http://docs.nativescript.org/ui/styling for a full list of the CSS
+selectors and properties you can use to style UI components.
+
+/*
+In many cases you may want to use the NativeScript core theme instead
+of writing your own CSS rules. For a full list of class names in the theme
+refer to http://docs.nativescript.org/ui/theme.
+The imported CSS rules must precede all other types of rules.
+*/
+/* @import '~nativescript-theme-core/css/core.light.css'; */
+
+
+.btn {
+	font-size: 18;
+}
+
+.h1, .h2, .h3 {
+	font-weight: bold;
+}
+
+Label.h1 {
+	font-size: 18pt;
+}
+
+Label.h2 {
+	font-size: 16pt;
+}
+
+.screen {
+	background-color: #1A1919;
+	color: #FFFFFF;
+	font-family: "Segoe UI";
+}
+
+.header Label {
+	font-size: 35pt;
+	font-weight: bold;
+}
+
+.header Label.h2 {
+	font-size: 18pt;
+}
+
+.expandable {
+	margin-top: 24;
+	position: relative;
+	color: #979797;
+	border-bottom-color: #979797;
+	border-bottom-width: 2;
+	margin-left: 18;
+	margin-right: 18;
+}
+
+.chevron {
+	display: none;
+}
+
+.chevron .chevron-one {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -8%;
+	height: 10%;
+	width: 35%;
+	background: #979797;
+	transform: rotate(45deg);
+}
+
+.chevron .chevron-two {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 10%;
+	width: 35%;
+	background: #979797;
+	transform: rotate(-45deg);
+}

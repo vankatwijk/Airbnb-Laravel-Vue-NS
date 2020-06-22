@@ -1,0 +1,5 @@
+{ 
+  "name" : "autocomplete-directives",
+  "main" : "autocomplete-directives",
+  "typings" : "autocomplete-directives.d.ts" 
+}

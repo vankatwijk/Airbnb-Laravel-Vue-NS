@@ -1,0 +1,5 @@
+{ 
+  "name" : "gauges-directives",
+  "main" : "gauges-directives",
+  "typings" : "gauges-directives.d.ts"
+}

@@ -1,0 +1,53 @@
+$enhancers: 'alternate', 'scale-alternate', 'contrasted', 'scale-contrasted';
+$root-classes: '.ns-modal', '.ns-root', '.ns-android', '.ns-ios', '.ns-phone', '.ns-tablet', '.ns-portrait', '.ns-landscape';
+
+@mixin enhance($name, $arguments, $colors) {
+    $args: ();
+    $has-enhancer: false;
+
+    $color: map-get($colors, $arguments);
+    $color: if($color != null, $color, const($arguments));
+
+    @each $enhancer in $enhancers {
+        @if str-index($name, '#{$enhancer}-') == 1 {
+            $has-enhancer: $enhancer;
+        }
+    }
+
+    @if $has-enhancer {
+        @each $arg in $arguments {
+            $color: map-get($colors, $arg);
+            $const: const($arg);
+
+            $args: append($args, if($color != null, $color, if($const != null, $const, $arg)));
+        }
+
+        $name: str-slice($name, str-length($has-enhancer) + 2);
+        $color: call(get-function($has-enhancer), $args...);
+    }
+
+    #{$name}: $color;
+}
+
+@mixin colorize($args...) {
+    $is-at-root: false;
+
+    @each $class in $root-classes {
+        @if(str-index('#{&}', $class) == 1) {
+            $is-at-root: true;
+        }
+    }
+
+    @each $name, $arguments in keywords($args) {
+        @include enhance($name, $arguments, $light-colors);
+    }
+
+    @at-root #{if($is-at-root,
+        selector-append('.ns-dark', &),
+        selector-nest('.ns-dark', &))} {
+
+        @each $name, $arguments in keywords($args) {
+            @include enhance($name, $arguments, $dark-colors);
+        }
+    }
+}

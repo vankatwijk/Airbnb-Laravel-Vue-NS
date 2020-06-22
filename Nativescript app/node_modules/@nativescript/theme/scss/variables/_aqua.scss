@@ -1,0 +1,18 @@
+// Core variables
+@import './index';
+
+/**
+ * Aqua variable overrides
+ **/
+
+// Complementary
+$complementary: const(aqua);
+$complementary-color: const(white);
+
+// Accent
+$accent: const(lime);
+
+// Buttons
+$btn-color-inverse: const(white);
+
+@import '../core/colors/index';

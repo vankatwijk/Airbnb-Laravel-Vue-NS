@@ -1,0 +1,15 @@
+// Core variables
+@import './index';
+
+/**
+ * Blue variable overrides
+ **/
+
+// Complementary
+$complementary: const(blue);
+$complementary-color: const(white);
+
+// Accent
+$accent: const(sky);
+
+@import '../core/colors/index';

@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":4,"metadata":{"RadGaugeValueMapper":{"__symbolic":"interface"},"GaugeScaleValueMapper":{"__symbolic":"interface"},"GaugeIndicatorValueMapper":{"__symbolic":"interface"},"NeedleIndicatorValueMapper":{"__symbolic":"interface"},"BarIndicatorValueMapper":{"__symbolic":"interface"}}}]

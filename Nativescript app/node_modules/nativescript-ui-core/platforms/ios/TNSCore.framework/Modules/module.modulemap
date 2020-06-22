@@ -1,0 +1,6 @@
+framework module TNSCore {
+  umbrella header "TNSCore.h"
+
+  export *
+  module * { export * }
+}

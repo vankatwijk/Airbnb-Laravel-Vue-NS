@@ -1,0 +1,155 @@
+@mixin side-drawer($selectors) {
+    #{$selectors} {
+
+        @if $compat {
+            .sidedrawer-left {
+                .sidedrawer-header-brand,
+                .sidedrawer-header-image {
+                    horizontal-align: left;
+                }
+            }
+
+            .sidedrawer-list-item {
+                .sidedrawer-list-item-icon {
+                    margin: 0 16 0 16;
+                    padding-top: 6;
+                    width: 24;
+                    text-align: center;
+                    font-size: const(icon-font-size-lg);
+                    height: 48;
+                    vertical-align: center;
+                }
+            }
+
+            .sidedrawer-list-item-text {
+                horizontal-align: left;
+                text-align: left;
+                background-color: transparent;
+                border-width: 0;
+                width: 80%;
+                vertical-align: center;
+                padding-left: 15;
+            }
+        }
+
+        #{if($compat, '.sidedrawer-header', '.nt-drawer__header')} {
+            width: 100%;
+            vertical-align: top;
+            padding: 35 0;
+
+            Label {
+                padding: 0;
+            }
+
+            > Label {
+                font-size: 18;
+            }
+
+            &-image {
+                height: 74;
+                width: 74;
+                border-radius: const(border-radius-lg);
+            }
+
+            &-footnote {
+                opacity: .5;
+            }
+
+            > Label,
+            &-image {
+                margin-left: 15;
+                margin-right: 15;
+                horizontal-align: center;
+                text-align: center;
+            }
+
+            @if not $compat {
+                &.-left {
+                    > Label,
+                    .nt-drawer__header-image {
+                        horizontal-align: left;
+                    }
+                }
+            }
+        }
+
+        #{if($compat, '.sidedrawer-list-item', '.nt-drawer__list-item')} {
+            padding-left: 15;
+            height: 48;
+            horizontal-align: left;
+            width: 100%;
+            orientation: horizontal;
+
+            Label {
+                vertical-align: center;
+            }
+
+            .nt-icon {
+                font-size: const(icon-font-size);
+                width: 30;
+            }
+        }
+
+        // This covers the dark root RSD, as the .ns-dark class is set on it
+        &.ns-dark {
+            @if $compat {
+                .sidedrawer-left,
+                .sidedrawer-center {
+                    color: dark(primary);
+                    background: dark(background);
+                }
+
+                .sidedrawer-list-item {
+
+                    &.active {
+                        color: dark(item-active-color);
+                        background-color: dark(item-active-background);
+                    }
+
+                    &.active &-icon {
+                        color: dark(item-active-icon-color);
+                    }
+                }
+            }
+
+            #{if($compat, '.sidedrawer-header', '.nt-drawer__header')} {
+                background-color: dark(complementary-dark);
+
+                Label {
+                    color: dark(complementary-color);
+                }
+            }
+        }
+    }
+}
+
+@mixin side-drawer-skin-content($mode: light) {
+    #{if($compat, '.sidedrawer-header', '.nt-drawer__header')} {
+        color: mode-get($mode, complementary-color);
+        background-color: mode-get($mode, complementary-dark);
+    }
+
+    #{if($compat, ('.sidedrawer-left', '.sidedrawer-center'), ('> *', '.nt-drawer__content'))} {
+        background-color: mode-get($mode, background);
+    }
+
+    #{if($compat, '.sidedrawer-list-item.active', '.nt-drawer__list-item.-selected')} {
+        background-color: mode-get($mode, item-active-background);
+
+        Label {
+            color: mode-get($mode, accent-dark);
+        }
+    }
+}
+
+@mixin side-drawer-skin($selectors) {
+    #{$selectors} {
+        @include side-drawer-skin-content();
+
+        // This covers the dark root RSD, as the .ns-dark class is set on it
+        .ns-dark &,
+        &.ns-dark {
+            @include side-drawer-skin-content(dark);
+        }
+    }
+}

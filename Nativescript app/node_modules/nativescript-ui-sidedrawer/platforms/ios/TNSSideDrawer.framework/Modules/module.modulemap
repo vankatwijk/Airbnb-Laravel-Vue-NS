@@ -1,0 +1,6 @@
+framework module TNSSideDrawer {
+  umbrella header "TNSSideDrawer.h"
+
+  export *
+  module * { export * }
+}

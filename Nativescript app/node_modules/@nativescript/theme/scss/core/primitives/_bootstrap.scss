@@ -1,0 +1,28 @@
+
+// # BOOTSTRAP #
+// ## Utilities ##
+.img-thumbnail {
+  border-radius: 0;
+}
+
+.invisible {
+  visibility: collapse;
+}
+
+.pull-left {
+  horizontal-align: left;
+}
+
+.pull-right {
+  horizontal-align: right;
+}
+
+//Horizontal centering http://v4-alpha.getbootstrap.com/components/utilities/#horizontal-centering
+.m-x-auto {
+  horizontal-align: center;
+}
+
+//Vertical centering
+.m-y-auto {
+  vertical-align: center;
+}

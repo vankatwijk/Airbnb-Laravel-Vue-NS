@@ -1,0 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var nativechat_1 = require("./nativechat");
+exports.NativeChat = nativechat_1.NativeChat;
+//# sourceMappingURL=index.js.map

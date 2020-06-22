@@ -1,0 +1,18 @@
+// Core variables
+@import './index';
+
+/**
+ * Lemon variable overrides
+ **/
+
+// Complementary
+$complementary: const(lemon);
+$complementary-color: const(charcoal);
+
+// Accent
+$accent: const(grey-dark);
+
+// Buttons
+$btn-color-inverse: const(white);
+
+@import '../core/colors/index';

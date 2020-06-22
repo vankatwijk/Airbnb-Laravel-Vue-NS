@@ -1,0 +1,1 @@
+/// <reference path="./platforms/ios/typings/dataform.d.ts" />

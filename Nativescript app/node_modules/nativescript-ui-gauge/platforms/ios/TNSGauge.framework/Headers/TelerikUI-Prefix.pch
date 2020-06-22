@@ -1,0 +1,18 @@
+//
+// Prefix header for all source files of the 'TelerikUI' target in the 'TelerikUI' project
+//
+
+#ifdef __OBJC__
+    #import <CoreGraphics/CoreGraphics.h>
+    #import <Foundation/Foundation.h>
+    #import <QuartzCore/QuartzCore.h>
+    #import <UIKit/UIKit.h>
+#endif
+
+#define TELERIKUI_VERSION @"%VERSION%";
+#define TRIAL_MESSAGE @"%TRIALMSG%"
+#define TRIAL_MESSAGE_TITLE @"%TRIALMSG_TITLE%"
+//#define TRIAL_NATIVESCRIPT
+//#define TRIAL
+
+
