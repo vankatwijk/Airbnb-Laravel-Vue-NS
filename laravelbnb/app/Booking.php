@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Bookable;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -13,7 +14,7 @@ class Booking extends Model
 
     public function bookable()
     {
-        return $this->belongsTo(Booking::class);
+        return $this->belongsTo(bookable::class);
     }
 
     public function review(){
