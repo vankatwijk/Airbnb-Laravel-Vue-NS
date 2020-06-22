@@ -48,6 +48,10 @@ export default {
         .then(response => (this.existingReview = response.data.data))
         .catch(err => {
 
+            if(err.response && err.response.status && 404 === err.response.status){
+                return axios.get(`/api/booking-by-reviews/${this.$route.params.id}`);
+            }
+
         }).then(() => (this.loading = false));
     },
     computed: {

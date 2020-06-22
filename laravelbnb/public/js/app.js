@@ -2290,7 +2290,11 @@ __webpack_require__.r(__webpack_exports__);
     this.loading = true;
     axios.get("/api/reviews/".concat(this.$route.params.id)).then(function (response) {
       return _this.existingReview = response.data.data;
-    })["catch"](function (err) {}).then(function () {
+    })["catch"](function (err) {
+      if (err.response && err.response.status && 404 === err.response.status) {
+        return axios.get("/api/booking-by-reviews/".concat(_this.$route.params.id));
+      }
+    }).then(function () {
       return _this.loading = false;
     });
   },
