@@ -6,7 +6,7 @@
             <router-link class="btn nav-button" :to="{name:'bookable', params:{id:1}}">Second</router-link>
 
         </nav>
-        <div class="containter mt-4 mb-4 pr-4 pl-4">
+        <div class="container mt-4 mb-4 pr-4 pl-4">
             <router-view></router-view>
         </div>
         

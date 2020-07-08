@@ -38,7 +38,7 @@
                             </label>
                             <textarea name="content" cols="30" rows="10" class="form-control" v-model="review.content"></textarea>
                         </div>
-                        <button class="btn btn-lg btm-primary btn-block" @click.prevent="submit" :disable="loading">Submit</button>
+                        <button class="btn btn-lg btm-primary btn-block" @click.prevent="submit" :disabled="loading">Submit</button>
                     </div>
 
                 </div>
