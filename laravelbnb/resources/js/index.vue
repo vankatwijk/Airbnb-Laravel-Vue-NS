@@ -11,3 +11,20 @@
         
     </div>
 </template>
+
+<script>
+import { mapState } from 'vuex';
+
+export default {
+    data() {
+        return{
+            lastSearch:this.$store.state.lastSearch
+        }
+    },
+    computed: {
+        ...mapState({
+            lastSearchComputed: state => state.lastSearch // just lastSearch will work too
+        })
+    }
+}
+</script>
