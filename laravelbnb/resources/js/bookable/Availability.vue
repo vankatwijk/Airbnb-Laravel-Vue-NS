@@ -2,8 +2,10 @@
     <div>
         <h6 class="text-uppercase text-secondary font-weight-bolder">
             Check Availability
-            <span v-if="noAvailability" class="test-danger">(NOT AVAILABLE)</span>
-            <span v-if="hasAvailability" class="text-success">(AVAILABLE)</span>
+            <transition name="fade">
+                <span v-if="noAvailability" class="test-danger">(NOT AVAILABLE)</span>
+                <span v-if="hasAvailability" class="text-success">(AVAILABLE)</span>
+            </transition>
         </h6>
 
         <div class="form-row">
@@ -33,7 +35,10 @@
                 />
                 <v-errors :errors="errorFor('to')"></v-errors>
             </div>
-            <button class="btn btn-secondary btn-block" @click="check" :disabled="loading">Check!</button>
+            <button class="btn btn-secondary btn-block" @click="check" :disabled="loading">
+                <span v-if="!loading">Check!</span>
+                <span v-if="loading"><i class="fas fa-circle-notch fa-spin"></i>Checking...</span>
+            </button>
         </div>
     </div>
 </template>
