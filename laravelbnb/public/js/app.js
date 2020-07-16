@@ -1971,8 +1971,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      from: null,
-      to: null,
+      from: this.$store.state.lastSearch.from || null,
+      to: this.$store.state.lastSearch.to || null,
       loading: false,
       status: null
     };
