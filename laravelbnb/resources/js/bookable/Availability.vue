@@ -74,11 +74,13 @@ export default {
                 this.status = (await axios.get(
                     `/api/bookables/${this.bookableId}/availability?from=${this.from}&to=${this.to}`
                 )).status;
-            }catch (err){
+                this.$emit("availability", this.hasAvailability);
+            }catch (error){
                 if(is422(error)) {
                     this.errors = error.response.data.errors;
                 }
                 this.status = error.response.status;
+                this.$emit("availability", this.hasAvailability);
             }
 
             this.loading = false

@@ -2013,20 +2013,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 6:
                 _this.status = _context.sent.status;
-                _context.next = 13;
+
+                _this.$emit("availability", _this.hasAvailability);
+
+                _context.next = 15;
                 break;
 
-              case 9:
-                _context.prev = 9;
+              case 10:
+                _context.prev = 10;
                 _context.t0 = _context["catch"](3);
 
-                if (Object(_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__["is422"])(error)) {
-                  _this.errors = error.response.data.errors;
+                if (Object(_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__["is422"])(_context.t0)) {
+                  _this.errors = _context.t0.response.data.errors;
                 }
 
-                _this.status = error.response.status;
+                _this.status = _context.t0.response.status;
 
-              case 13:
+                _this.$emit("availability", _this.hasAvailability);
+
+              case 15:
                 _this.loading = false; // axios.get(`/api/bookables/${this.bookableId}/availability?from=${this.from}&to=${this.to}`)
                 // .then(response => {
                 //     this.status = response.status;
@@ -2039,12 +2044,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 // })
                 // .then(() => (this.loading = false))
 
-              case 14:
+              case 16:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[3, 9]]);
+        }, _callee, null, [[3, 10]]);
       }))();
     }
   },
@@ -2118,6 +2123,11 @@ __webpack_require__.r(__webpack_exports__);
       _this.bookable = response.data.data;
       _this.loading = false;
     });
+  },
+  methods: {
+    checkPrice: function checkPrice(hasAvailability) {
+      console.log(hasAvailability);
+    }
   }
 });
 
@@ -61094,7 +61104,16 @@ var render = function() {
     _c(
       "div",
       { staticClass: "col-md-4" },
-      [_c("availability", { attrs: { "bookable-id": this.$route.params.id } })],
+      [
+        _c("availability", {
+          attrs: { "bookable-id": this.$route.params.id },
+          on: {
+            availability: function($event) {
+              return _vm.checkPrice($event)
+            }
+          }
+        })
+      ],
       1
     )
   ])
