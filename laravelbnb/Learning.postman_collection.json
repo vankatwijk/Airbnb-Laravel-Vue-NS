@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "46afa5fd-61a4-40df-9dbc-6e58643ea51c",
+		"name": "Learning",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAvailability",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/bookables/3/availability?from=2020-06-16&to=2020-07-10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"bookables",
+						"3",
+						"availability"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2020-06-16"
+						},
+						{
+							"key": "to",
+							"value": "2020-07-10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get reviews",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/bookables/1/reviews",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"bookables",
+						"1",
+						"reviews"
+					]
+				},
+				"description": "this endpoint will show all reviews for a bookable"
+			},
+			"response": []
+		},
+		{
+			"name": "Get review exist",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/reviews/003e4d64-5a00-4362-9970-24e05f383c75",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"reviews",
+						"003e4d64-5a00-4362-9970-24e05f383c75"
+					],
+					"query": [
+						{
+							"key": "Accept",
+							"value": "appl",
+							"disabled": true
+						}
+					]
+				},
+				"description": "this end point will check if a review exist"
+			},
+			"response": []
+		},
+		{
+			"name": "get booking-by-review",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/booking-by-review/003e4d64-5a00-4362-9970-24e05f383c75",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"booking-by-review",
+						"003e4d64-5a00-4362-9970-24e05f383c75"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store review",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"0000e738-2cf5-4627-8065-fbfe0fc0cae2\",\n    \"content\": \"123fvdfsdv\",\n    \"rating\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/reviews",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"reviews"
+					]
+				},
+				"description": "store a review for a booking"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
