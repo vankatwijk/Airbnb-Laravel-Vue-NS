@@ -23,7 +23,7 @@
             ></availability>
 
             <transition name="fade">
-                <PriceBreakDown v-if="price" :price="price"></PriceBreakDown>
+                <PriceBreakDown v-if="price" :price="price" class="mb-4"></PriceBreakDown>
             </transition>
 
             <transition name="fade">
@@ -72,7 +72,8 @@ export default {
             try{
                 this.price = (await axios.get(
                     `/api/bookables/${this.$route.params.id}/price?from=${this.lastSearch.from}&to=${this.lastSearch.to}`
-                    )).data.data;
+                    )).data;
+                    console.log(this.price);
             }catch(err){
                 this.price = null;
             }

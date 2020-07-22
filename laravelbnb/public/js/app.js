@@ -2181,21 +2181,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return axios.get("/api/bookables/".concat(_this2.$route.params.id, "/price?from=").concat(_this2.lastSearch.from, "&to=").concat(_this2.lastSearch.to));
 
               case 6:
-                _this2.price = _context.sent.data.data;
-                _context.next = 12;
+                _this2.price = _context.sent.data;
+                console.log(_this2.price);
+                _context.next = 13;
                 break;
 
-              case 9:
-                _context.prev = 9;
+              case 10:
+                _context.prev = 10;
                 _context.t0 = _context["catch"](3);
                 _this2.price = null;
 
-              case 12:
+              case 13:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[3, 9]]);
+        }, _callee, null, [[3, 10]]);
       }))();
     }
   },
@@ -2218,6 +2219,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -61222,7 +61236,10 @@ var render = function() {
           { attrs: { name: "fade" } },
           [
             _vm.price
-              ? _c("PriceBreakDown", { attrs: { price: _vm.price } })
+              ? _c("PriceBreakDown", {
+                  staticClass: "mb-4",
+                  attrs: { price: _vm.price }
+                })
               : _vm._e()
           ],
           1
@@ -61264,17 +61281,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "h6",
-      { staticClass: "text-uppercase text-secondary font-weight-bolder" },
-      [_vm._v("price breakdown")]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "font-weight-bolder" }, [
-      _vm._v("\n        Total $" + _vm._s(_vm.price.data) + "\n    ")
-    ])
-  ])
+  return _c(
+    "div",
+    [
+      _c(
+        "h6",
+        { staticClass: "text-uppercase text-secondary font-weight-bolder" },
+        [_vm._v("price breakdown")]
+      ),
+      _vm._v(" "),
+      _vm._l(_vm.price.breakdown, function(days, price) {
+        return _c(
+          "div",
+          {
+            key: price,
+            staticClass:
+              "pt-2 pb-2 border-bottom border-top d-flex justify-content-between"
+          },
+          [
+            _c("span", [_vm._v(_vm._s(days) + " * $" + _vm._s(price))]),
+            _vm._v(" "),
+            _c("span", [_vm._v(" $" + _vm._s(days * price))])
+          ]
+        )
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "pt-2 font-weight-bolder d-flex justify-content-between"
+        },
+        [
+          _c("span", [_vm._v("Total ")]),
+          _vm._v(" "),
+          _c("span", [_vm._v("$" + _vm._s(_vm.price.total))])
+        ]
+      )
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
