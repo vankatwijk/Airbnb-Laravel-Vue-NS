@@ -97,14 +97,14 @@ export default {
     computed: {
         ...mapState({
             lastSearch: state => state.lastSearch, // just lastSearch will work too
-            inBasketAlready(state){
-                if(this.bookable === null){
-                    return false;
-                }
-
-                return state.basket.items.reduce((result, item) => result || item.bookable.id === this.bookable.id,false);
+        }),
+        inBasketAlready(){
+            if(this.bookable === null){
+                return false;
             }
-        })
+
+            return this.$store.getters.inBasketAlready(this.bookable.id);
+        }
     }
 
 }

@@ -2214,23 +2214,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.$store.commit("removeFromBasket", this.bookable.id);
     }
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapState"])({
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapState"])({
     lastSearch: function lastSearch(state) {
       return state.lastSearch;
-    },
-    // just lastSearch will work too
-    inBasketAlready: function inBasketAlready(state) {
-      var _this3 = this;
+    } // just lastSearch will work too
 
+  })), {}, {
+    inBasketAlready: function inBasketAlready() {
       if (this.bookable === null) {
         return false;
       }
 
-      return state.basket.items.reduce(function (result, item) {
-        return result || item.bookable.id === _this3.bookable.id;
-      }, false);
+      return this.$store.getters.inBasketAlready(this.bookable.id);
     }
-  }))
+  })
 });
 
 /***/ }),
@@ -79541,6 +79538,13 @@ __webpack_require__.r(__webpack_exports__);
   getters: {
     itemsInBasket: function itemsInBasket(state) {
       return state.basket.items.length;
+    },
+    inBasketAlready: function inBasketAlready(state) {
+      return function (id) {
+        return state.basket.items.reduce(function (result, item) {
+          return result || item.bookable.id === id;
+        }, false);
+      };
     }
   }
 });
