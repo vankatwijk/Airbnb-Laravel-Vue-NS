@@ -4,6 +4,10 @@
 
             <router-link class="navbar-brand mr-auto" :to="{name:'home'}">Home</router-link>
 
+            <router-link class="btn nav-button" :to="{name : 'home'}">
+                Basket
+                <span v-if="itemsInBasket" class="badge badge-secondary">{{ itemsInBasket }}</span>
+            </router-link>
         </nav>
         <div class="container mt-4 mb-4 pr-4 pl-4">
             <router-view></router-view>
@@ -13,7 +17,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
     data() {
@@ -24,6 +28,9 @@ export default {
     computed: {
         ...mapState({
             lastSearchComputed: state => state.lastSearch // just lastSearch will work too
+        }),
+        ...mapGetters({
+            itemsInBasket: "itemsInBasket"
         })
     }
 }

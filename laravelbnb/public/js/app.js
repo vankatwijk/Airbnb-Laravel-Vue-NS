@@ -2460,6 +2460,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2467,11 +2471,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       lastSearch: this.$store.state.lastSearch
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
     lastSearchComputed: function lastSearchComputed(state) {
       return state.lastSearch;
     } // just lastSearch will work too
 
+  })), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    itemsInBasket: "itemsInBasket"
   }))
 });
 
@@ -61551,6 +61557,19 @@ var render = function() {
             attrs: { to: { name: "home" } }
           },
           [_vm._v("Home")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          { staticClass: "btn nav-button", attrs: { to: { name: "home" } } },
+          [
+            _vm._v("\n            Basket\n            "),
+            _vm.itemsInBasket
+              ? _c("span", { staticClass: "badge badge-secondary" }, [
+                  _vm._v(_vm._s(_vm.itemsInBasket))
+                ])
+              : _vm._e()
+          ]
         )
       ],
       1
@@ -79412,6 +79431,11 @@ __webpack_require__.r(__webpack_exports__);
       if (lastSearch) {
         context.commit('setLastSearch', JSON.parse(lastSearch));
       }
+    }
+  },
+  getters: {
+    itemsInBasket: function itemsInBasket(state) {
+      return state.basket.items.length;
     }
   }
 });
