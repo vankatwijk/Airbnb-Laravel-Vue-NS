@@ -20,6 +20,22 @@
                             ${{ item.price.total }}
                         </span>
                     </div>
+
+                    <div class="pt-2 pb-2 d-flex justify-content-between">
+                        <span>
+                            From {{ item.dates.from}}
+                        </span>
+                        <span>
+                            To {{ item.dates.to}}
+                        </span>
+                    </div>
+
+                    <div class="pt-2 pb-2 text-right">
+                        <button class="btn btn-sm btn-outline-secondary" @click="$store.dispatch('removeFromBasket', item.bookable.id)">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>

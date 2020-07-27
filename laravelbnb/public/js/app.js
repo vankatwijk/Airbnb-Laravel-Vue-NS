@@ -1955,6 +1955,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["itemsInBasket"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
@@ -61275,7 +61291,47 @@ var render = function() {
                     )
                   ])
                 ]
-              )
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "pt-2 pb-2 d-flex justify-content-between" },
+                [
+                  _c("span", [
+                    _vm._v(
+                      "\n                        From " +
+                        _vm._s(item.dates.from) +
+                        "\n                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("span", [
+                    _vm._v(
+                      "\n                        To " +
+                        _vm._s(item.dates.to) +
+                        "\n                    "
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "pt-2 pb-2 text-right" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-sm btn-outline-secondary",
+                    on: {
+                      click: function($event) {
+                        return _vm.$store.dispatch(
+                          "removeFromBasket",
+                          item.bookable.id
+                        )
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fas fa-trash-alt" })]
+                )
+              ])
             ])
           })
         ],
@@ -79833,7 +79889,9 @@ __webpack_require__.r(__webpack_exports__);
       commit('addToBasket', payload);
       localStorage.setItem('basket', JSON.stringify(state.basket));
     },
-    removeFromBasket: function removeFromBasket() {
+    removeFromBasket: function removeFromBasket(_ref2, payload) {
+      var commit = _ref2.commit,
+          state = _ref2.state;
       commit('removeFromBasket', payload);
       localStorage.setItem('basket', JSON.stringify(state.basket));
     }
