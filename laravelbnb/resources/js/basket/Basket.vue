@@ -2,7 +2,48 @@
     <div>
         <div class="row">
             <div class="col-md-8">Checkout form</div>
-            <div class="col-md-4">Basket items</div>
+            <div class="col-md-4">
+                <div class="d-flex justify-content-between">
+                    <h6 class="text-uppercase text-secondary font-weight-bolder"></h6>
+                    <h6 class="badge badge-secondary text-uppercase">
+                        <span v-if="itemsInBasket"> Itmes {{itemsInBasket}}</span>
+                        <span v-else>Empty</span>
+                    </h6>
+                </div>
+
+                <div v-for="item in basket" :key="item.bookable.id">
+                    <div class="pt-2 pb-2 border-top d-flex justify-content-between">
+                        <span>
+                            <router-link :to="{name: 'bookable', params: {id: item.bookable.id}}">{{item.bookable.title }}</router-link>
+                        </span>
+                        <span class="font-weight-bold">
+                            ${{ item.price.total }}
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
+
+<script>
+import { mapGetters, mapState } from 'vuex'
+
+export default {
+    computed:{
+        ...mapGetters(["itemsInBasket"]),
+        ...mapState({
+            basket:state => state.basket.items
+        })
+    }
+}
+</script>
+
+<style scoped>
+    h6.badge {
+        font-size:100%
+    }
+    a {
+        color: black
+    }
+</style>
