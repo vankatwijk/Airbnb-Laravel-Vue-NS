@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/bookables/3/availability?from=2020-06-16&to=2020-07-10",
+					"raw": "http://127.0.0.1:8000/api/bookables/10/availability?from=2020-08-16&to=2020-08-18",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -23,17 +23,17 @@
 					"path": [
 						"api",
 						"bookables",
-						"3",
+						"10",
 						"availability"
 					],
 					"query": [
 						{
 							"key": "from",
-							"value": "2020-06-16"
+							"value": "2020-08-16"
 						},
 						{
 							"key": "to",
-							"value": "2020-07-10"
+							"value": "2020-08-18"
 						}
 					]
 				}
@@ -205,6 +205,49 @@
 					]
 				},
 				"description": "store a review for a booking"
+			},
+			"response": []
+		},
+		{
+			"name": "store checkout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"booking\":[\n        {\n            \"bookable_id\":1,\n            \"from\": \"2019-12-16\",\n            \"to\": \"2019-12-16\"\n        }\n    ],\n    \"customer\":{\n        \"first_names\":\"John D\",\n        \"last_name\": \"Reeves\",\n        \"email\":\"john@gmail.com\",\n        \"street\": \"Hopins St 25\",\n        \"city\": \"sliema\",\n        \"country\": \"malta\",\n        \"state\": \"MI\",\n        \"zip\": \"3244\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/checkout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"checkout"
+					]
+				}
 			},
 			"response": []
 		}
