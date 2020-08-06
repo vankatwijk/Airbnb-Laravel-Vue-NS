@@ -226,7 +226,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"booking\":[\n        {\n            \"bookable_id\":1,\n            \"from\": \"2019-12-16\",\n            \"to\": \"2019-12-16\"\n        }\n    ],\n    \"customer\":{\n        \"first_names\":\"John D\",\n        \"last_name\": \"Reeves\",\n        \"email\":\"john@gmail.com\",\n        \"street\": \"Hopins St 25\",\n        \"city\": \"sliema\",\n        \"country\": \"malta\",\n        \"state\": \"MI\",\n        \"zip\": \"3244\"\n    }\n}",
+					"raw": "{\n    \"bookings\":[\n        {\n            \"bookable_id\":1,\n            \"from\": \"2020-11-18\",\n            \"to\": \"2020-11-19\"\n        }\n    ],\n    \"customer\":{\n        \"first_names\":\"John D\",\n        \"last_name\": \"Reeves\",\n        \"email\":\"john@gmail.com\",\n        \"street\": \"Hopins St 25\",\n        \"city\": \"sliema\",\n        \"country\": \"malta\",\n        \"state\": \"MI\",\n        \"zip\": \"3244\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
