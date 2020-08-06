@@ -2424,26 +2424,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 _context.prev = 3;
-                _context.next = 6;
+                console.log("here");
+                _context.next = 7;
                 return axios.get("/api/bookables/".concat(_this2.$route.params.id, "/price?from=").concat(_this2.lastSearch.from, "&to=").concat(_this2.lastSearch.to));
 
-              case 6:
-                _this2.price = _context.sent.data;
+              case 7:
+                _this2.price = _context.sent;
                 console.log(_this2.price);
-                _context.next = 13;
+                _context.next = 14;
                 break;
 
-              case 10:
-                _context.prev = 10;
+              case 11:
+                _context.prev = 11;
                 _context.t0 = _context["catch"](3);
                 _this2.price = null;
 
-              case 13:
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[3, 10]]);
+        }, _callee, null, [[3, 11]]);
       }))();
     },
     addToBasket: function addToBasket() {
