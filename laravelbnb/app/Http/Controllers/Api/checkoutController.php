@@ -53,9 +53,8 @@ class checkoutController extends Controller
             $booking = new Booking();
             $booking->from = $bookingData['from'];
             $booking->to = $bookingData['to'];
-            $booking->price = 200;
-            $booking->bookable_id = $bookingData['bookable_id'];
-            
+            $booking->price = $bookable->priceFor($booking->from, $booking->to)['total'];
+            $booking->bookable()->associate($bookable);
             $booking->address()->associate(Address::create($addressData));
 
             $booking->save();
