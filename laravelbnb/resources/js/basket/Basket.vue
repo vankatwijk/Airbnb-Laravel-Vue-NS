@@ -182,6 +182,7 @@ export default {
                 });
                 this.$store.dispatch("clearBasket");
             } catch (error) {
+                this.$store.dispatch("clearBasket");
                 this.errors = error.response && error.response.data.errors;
             }
 

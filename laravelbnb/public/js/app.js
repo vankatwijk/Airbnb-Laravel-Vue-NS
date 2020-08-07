@@ -2129,19 +2129,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 6:
                 _this.$store.dispatch("clearBasket");
 
-                _context.next = 12;
+                _context.next = 13;
                 break;
 
               case 9:
                 _context.prev = 9;
                 _context.t0 = _context["catch"](3);
+
+                _this.$store.dispatch("clearBasket");
+
                 _this.errors = _context.t0.response && _context.t0.response.data.errors;
 
-              case 12:
+              case 13:
                 _this.loading = false;
                 _this.bookingAttempted = true;
 
-              case 14:
+              case 15:
               case "end":
                 return _context.stop();
             }
@@ -80324,6 +80327,14 @@ __webpack_require__.r(__webpack_exports__);
           state = _ref2.state;
       commit('removeFromBasket', payload);
       localStorage.setItem('basket', JSON.stringify(state.basket));
+    },
+    clearBasket: function clearBasket(_ref3, payload) {
+      var commit = _ref3.commit,
+          state = _ref3.state;
+      commit("setBasket", {
+        items: []
+      });
+      localStorage.setItem("basket", JSON.stringify(state.basket));
     }
   },
   getters: {
