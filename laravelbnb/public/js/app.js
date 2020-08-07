@@ -2429,7 +2429,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return axios.get("/api/bookables/".concat(_this2.$route.params.id, "/price?from=").concat(_this2.lastSearch.from, "&to=").concat(_this2.lastSearch.to));
 
               case 7:
-                _this2.price = _context.sent;
+                _this2.price = _context.sent.data.data;
                 console.log(_this2.price);
                 _context.next = 14;
                 break;

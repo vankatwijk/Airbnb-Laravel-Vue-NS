@@ -77,7 +77,7 @@ export default {
                     console.log("here");
                 this.price = (await axios.get(
                     `/api/bookables/${this.$route.params.id}/price?from=${this.lastSearch.from}&to=${this.lastSearch.to}`
-                    ));
+                    )).data.data;
                     console.log(this.price);
             }catch(err){
                 this.price = null;
