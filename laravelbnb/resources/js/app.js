@@ -10,6 +10,7 @@ import FatalError from "./shared/components/FatalError";
 import Success from "./shared/components/Success";
 import ValidationErrors from "./shared/components/ValidationErrors";
 import storeDefinition from "./store";
+import Axios from "axios";
 
 window.Vue = require('vue');
 
@@ -42,7 +43,15 @@ const app = new Vue({
     components:{
         "index":Index
     },
-    beforeCreate(){
+    async beforeCreate(){
         this.$store.dispatch("loadStoredState");
+
+        await Axios.get('/sanctum/csrf-cookie');
+        await axios.post("/login",{
+            email: 'herzog.adrianna@example.org',
+            password: 'password'
+        });
+
+        await axios.get('/user');
     }
 });
