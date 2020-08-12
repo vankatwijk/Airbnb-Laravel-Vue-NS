@@ -4,7 +4,7 @@ AirBnb clone
 
 # Project Description
 
-AirBnb clone web interface created with laravel 7 and vue , mobile apps created with nativescript-vue
+AirBnb clone web interface created with laravel 7 and vue , mobile apps created with nativescript-vue. Authentication handled using sanctum and session tokens for the web interface
 
 ## Getting Started
 
