@@ -25,6 +25,11 @@ const routes = [
         component:Basket,
         name:"basket",
     },
+    {
+        path: "/auth/login",
+        component:require("./auth/Login").default,
+        name:"Login",
+    },
 ];
 
 const router = new VueRouter({
