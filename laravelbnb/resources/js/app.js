@@ -45,13 +45,15 @@ const app = new Vue({
     },
     async beforeCreate(){
         this.$store.dispatch("loadStoredState");
+        this.$store.dispatch("loadUser");
 
-        await Axios.get('/sanctum/csrf-cookie');
-        await axios.post("/login",{
-            email: 'herzog.adrianna@example.org',
-            password: 'password'
-        });
+        //just a test
+        // await Axios.get('/sanctum/csrf-cookie');
+        // await axios.post("/login",{
+        //     email: 'herzog.adrianna@example.org',
+        //     password: 'password'
+        // });
 
-        await axios.get('/user');
+        // await axios.get('/user');
     }
 });
