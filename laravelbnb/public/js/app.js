@@ -81016,10 +81016,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _context.prev = 2;
                 _context.next = 5;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/user").data;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/user");
 
               case 5:
-                user = _context.sent;
+                user = _context.sent.data;
                 commit("setUser", user);
                 commit("setLoggedIn", true);
                 _context.next = 13;

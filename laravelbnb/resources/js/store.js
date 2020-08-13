@@ -65,7 +65,7 @@ export default {
         async loadUser({commit, dispatch}) {
             if(isLoggedIn()){
                 try{
-                    const user = await Axios.get("/user").data;
+                    const user = (await Axios.get("/user")).data;
                     commit("setUser", user);
                     commit("setLoggedIn", true);
                 }catch(e){
