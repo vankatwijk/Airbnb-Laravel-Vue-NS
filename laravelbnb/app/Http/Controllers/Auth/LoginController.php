@@ -41,6 +41,15 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
+        //prevent a redirect if the request is made via ajax
+        if($request->isXMlHttpRequest()){
+            return response(null,284);
+        }
+    }
+
+    protected function loggedOut(Request $request)
+    {
+        //prevent a redirect if the request is made via ajax
         if($request->isXMlHttpRequest()){
             return response(null,284);
         }

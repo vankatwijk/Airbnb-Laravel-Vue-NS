@@ -35,12 +35,12 @@ Vue.component("v-errors", ValidationErrors);
 
 const store = new Vuex.Store(storeDefinition);
 
-Window.axios.interceptors.response.use(
+window.axios.interceptors.response.use(
     response => {
         return response;
     },
-    error =>{
-        if(401 === error.response.status){
+    error => {
+        if (401 === error.response.status) {
             store.dispatch("logout");
         }
 
