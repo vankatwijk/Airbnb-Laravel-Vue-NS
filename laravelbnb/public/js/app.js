@@ -81108,6 +81108,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (basket) {
         context.commit('setBasket', JSON.parse(basket));
       }
+
+      context.commit('setLoggedIn', Object(_shared_utils_auth__WEBPACK_IMPORTED_MODULE_1__["isLoggedIn"])());
     },
     addToBasket: function addToBasket(_ref, payload) {
       var commit = _ref.commit,
