@@ -69,7 +69,7 @@ export default {
                     commit("setUser", user);
                     commit("setLoggedIn", true);
                 }catch(e){
-                    dispatch("logout")
+                    dispatch("logout");
                 }
             }
         },
